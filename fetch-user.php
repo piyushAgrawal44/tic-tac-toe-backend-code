@@ -28,6 +28,7 @@ function trim_input_value($data) {
 
     $data= mysqli_stmt_get_result($sql);
     $i=0;
+    $mydata[]=array();
     while($row=mysqli_fetch_array($data)){
         $mydata[$i]=$row;
         $i++;

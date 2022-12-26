@@ -32,6 +32,7 @@ header('Access-Control-Max-Age: 86400');
 
         $data= mysqli_stmt_get_result($sql);
         $i=0;
+        $mydata[]=array();
         while($row=mysqli_fetch_array($data)){
             $mydata[$i]=$row;
             $i++;
