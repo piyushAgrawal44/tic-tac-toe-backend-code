@@ -39,9 +39,7 @@
         $business_details["password"]=trim_input_value($_POST["password"]);
         
         if (!checkReq($business_details)) {
-            $msg="Please fill all the details correctly!";
-            mysqli_stmt_close($sql);
-            mysqli_close($conn); 
+            $msg="Please fill all the details correctly!"; 
 
             http_response_code(500);
             echo json_encode($msg);
@@ -49,9 +47,7 @@
         }
 
         if (!checkPassword($business_details["password"])) {
-            $msg="Password must be of 6 digits !";
-            mysqli_stmt_close($sql);
-                mysqli_close($conn); 
+                $msg="Password must be of 6 digits !";
 
                 http_response_code(500);
                 echo json_encode($msg);
@@ -79,7 +75,7 @@
             $result=mysqli_stmt_execute($sql);
             if (!$result){ 
              
-                $data = "Something went wrong.";
+                $data = mysqli_error($conn);
                 mysqli_stmt_close($sql);
                 mysqli_close($conn); 
 
